@@ -1,0 +1,76 @@
+OKAY.  I'm VAGUELY inspired to work on this again!
+Things to do:
+ * Players/enemies should have seperate properties for touching walls and
+   touching players/enemies.  Weapons that shoot through walls would also be
+   interesting --perhaps by raycasting, rather than projectiles?
+ * Players/enemies should have mass and air resistance, that defines knockback
+   and how fast they fall.  Certain Powers should knockback, and with Air
+   activated you should fall slower.  Earth -> fall faster, conversely.
+ * More terrain.  Blocks, with filling, spheres that bounce you like pinball
+   bouncers, metal walls that conduct heat and electricity, make slopes
+   work...  This is partially functional and partially aesthetic.
+ * If necessary, we can make levels predefined in the interest of gameplay.
+ * Make sure EVERYTHING is decoupled from framerate.  Keypresses, etc.
+ * Abstract away keypresses some more?  If necessary.
+
+
+
+
+Air: The jump shouldn't be as high, but the airjumps should be both more
+powerful and more expensive/longer lag
+
+Make particle drawing funcs generic, for shots and such...?  Shot inherits
+from particle?
+
+Make better, timed input system.  Then fix air defend and make power switches
+Make powers happen
+--Switching Powers
+--Change appearance/something based on power.  As you get more powers, it
+  should become brighter/awsomer
+Make friction more powerful --ice, glue, etc
+Make objects depend on the actual level...
+Make particles EVEN MORE AWESOME
+Make levels happen more, and figure out how they should be built
+Make backgrounds
+
+Optimize line-drawing algorithm (done?)
+Flood-fill algorithm!
+
+
+
+
+Timers
+-timeHasPassed
+-setTimer
+-doTick
+
+
+
+
+
+*Do interpolation --works good enough for now.
+
+*Make particles happen better/more
+
+*Make Powers happen
+
+*Make enemies happen
+
+*Make terrain happen
+
+*Make backgrounds happen, more --cluster config files, etc.
+
+
+
+
+
+Game thingies:
+*Pause mode
+*Debug mode
+*Level editor, eventually (???)
+^
+|?
+v
+*Random level generation and linkage
+
+

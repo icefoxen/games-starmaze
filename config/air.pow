@@ -1,0 +1,19 @@
+[power]
+name="Air"
+
+closeEnergy=2.
+closeCooldown=200
+
+farEnergy=5.
+farCooldown=500
+
+# This is actually nice, 'cause the cooldown finishes right at the apex of the
+# jump
+jumpPower=100.
+jumpEnergy=10.
+jumpCooldown=700
+
+defendEnergy=2.0
+defendCooldown=50
+
+

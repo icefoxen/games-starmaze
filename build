@@ -1,0 +1,9 @@
+#!/bin/sh
+echo "Cleaning..."
+cd src
+make clean
+echo "Building..."
+make
+cp sm ..
+cd ..
+echo "Done!"

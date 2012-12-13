@@ -1,0 +1,24 @@
+#!/bin/sh
+
+FILES="util.cmo config.cmo resources.cmo area.cmo audio.cmo vector.cmo input.cmo  drawing.cmo line.cmo gameobj.cmo particles.cmo level.cmo player.cmo text.cmo timer.cmo upgrade.cmo main.cmo"
+
+LIBS="str.cma unix.cma nums.cma bigarray.cma sdl.cma sdlloader.cma sdlttf.cma 
+      sdlmixer.cma"
+
+
+OPTFILES="util.cmx config.cmx resources.cmx area.cmx audio.cmx vector.cmx input.cmx  drawing.cmx line.cmx gameobj.cmx particles.cmx level.cmx player.cmx text.cmx timer.cmx upgrade.cmx main.cmx"
+
+OPTLIBS="str.cmxa unix.cmxa nums.cmxa bigarray.cmxa sdl.cmxa sdlloader.cmxa sdlttf.cmxa sdlmixer.cmxa"
+
+OCAMLC=ocamlc.opt
+OCAMLCP=ocamlcp
+OCAMLOPT=ocamlopt.opt
+
+OCAMLSDLLIB=`ocamlfind query sdl`
+
+OUTNAME=sm
+
+
+$OCAMLC -o $OUTNAME -g -I $OCAMLSDLLIB $LIBS $FILES
+#$OCAMLOPT -o $OUTNAME.opt -I $OCAMLSDLLIB $OPTLIBS $OPTFILES
+

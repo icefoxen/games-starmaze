@@ -1,0 +1,17 @@
+[power]
+name="Start"
+
+closeEnergy=5.
+closeCooldown=200
+
+farEnergy=10.
+farCooldown=500
+
+jumpPower=75.
+jumpEnergy=5.
+jumpCooldown=0
+
+defendEnergy=1.0
+defendCooldown=10
+
+

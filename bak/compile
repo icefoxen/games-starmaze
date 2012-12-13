@@ -1,0 +1,19 @@
+#!/bin/sh
+
+FILES="util.ml config.ml resources.ml area.ml audio.ml vector.ml input.ml drawing.ml line.ml gameobj.ml particles.ml level.ml player.ml text.ml timer.ml upgrade.ml main.ml"
+
+LIBS="str.cma unix.cma nums.cma bigarray.cma sdl.cma sdlloader.cma sdlttf.cma 
+      sdlmixer.cma"
+
+OPTLIBS="str.cmxa unix.cmxa nums.cmxa bigarray.cmxa sdl.cmxa sdlloader.cmxa sdlttf.cmxa sdlmixer.cmxa"
+
+OCAMLC=ocamlc.opt
+OCAMLCP=ocamlcp
+OCAMLOPT=ocamlopt.opt
+
+OCAMLSDLLIB=`ocamlfind query sdl`
+
+
+$OCAMLC -c -g -I $OCAMLSDLLIB $LIBS $FILES 
+#$OCAMLOPT -c -I $OCAMLSDLLIB $OPTLIBS $FILES
+

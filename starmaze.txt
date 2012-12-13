@@ -1,0 +1,325 @@
+ACTUAL DESIGN DOC
+This is Starmaze.  Expect eights.
+
+LEVELS
+There are eight room-clusters, two of which are secret.  Each cluster is maybe
+20 rooms, to throw out a starting number.
+
+Start, where you begin, and End, where you are trying to reach.  To get to
+End, you have to go through the four Elemental clusters, which are of course
+Water, Earth, Air and Flame.  Along the way you may find a way to get into the
+two secret clusters, Star and Soul.
+
+Each cluster has it's own themes, colors, decorations, and enemies.  As you
+conquor each cluster, you gain access to a new realm of Power.  Once you've
+conquored the four Elemental clusters, you get access to End.
+
+The layout of clusters is vaguely radial; Start lies in the middle of the four
+Elemental clusters, with Star above and Soul below.  These directions are
+essentially meaningless of course, but it's how I think of it.  End has no
+direction, it is "inward".
+
+Each room is an area which leads to one to five other rooms, average maybe
+2.5.  They form a more or less random network around the center of the
+cluster.  There is one path placed at random in each cluster to one of the
+adjacant clusters.  All paths are bidirectional.  Each cluster has 8 rooms in
+it, which gives us 64 rooms total.  The rooms can be bigger than I originally
+intended, heh.
+
+On each door is a glyph showing which room it leads to.  It is binary, in the
+shape of three lines at 60 degree angles, forming a star.  No lines is 000, a
+horizontal line is 001, a line sloping up-right is 010, a line sloping
+down-right is 100.  The start room of each cluster is 000, the end is 111.
+The color of the lines and door are different depending on which cluster it
+leads to.
+
+There is a core room in Start, which has doors to each of the clusters.
+Tentatively, to open Star and Soul, you have to find the doors to them in each
+of the Elemental clusters and hit them with the appropriate element, at which
+point the door in the Start core room will open.  Or perhaps there will now
+and then appear a big Inner Demon-like monster, who you fight in a dream, and
+when you defeat it you open one of the gates.
+
+Each cluster has it's own theme, colors, backgrounds, music, enemies.  There
+are subtle but noticable signs about whether you're getting closer to or
+further from the core room.  Changes in brightness, pattern of background,
+difficulty and type of enemies.
+
+Each core room has a big boss you must defeat, after which you gain the Power
+of that Element.
+
+Rooms are built semi-randomly.  There are a number of basic shapes, which are
+then decorated with features --platforms, enemies, wheels, traps, teleporters,
+other secret things.  Each room should be able to be defeated in maybe 5
+minutes.  Defeated means, roughly, killing any enemies and solving any simple
+puzzles.
+
+Hazards and features of rooms include: Fan, Flame-spurt, ice-spurt, big
+spikes, little spikes, in-out spikes, goo, ice, lava, bounceres,
+fan-suckers/blowers, moving platforms
+
+Earth = green
+Water = deep blue
+Air = Light blue
+Flame = Red
+Start = Grey
+End = Indigo
+Star Secret = Silver-sparks
+Soul Secret = Gold-sparks (or rainbow)
+
+Thing is, once you've got End, you've beaten the game.  There may be an
+Ex-play mode, where you play through again with all the weapons and such,
+against harder enemies.  That'd be cool.  If we can also scale the power of
+weapons similarly as you re-acquire them, we might be able to go on ad
+infinitum.
+
+If you get both Star and Soul, and maybe do some other special things, it may
+open a path to a new uber-secret, Power.  I don't think Power will actually
+have an element in it, but...  Hmm, maybe it'll lead to a special ending after
+you beat End, where you have to go through an uber-cluster (Final) with the End
+Power.
+
+
+PLAYER
+The player is represented by a circle with a four-pointed star around it; the
+circle represents the actual bounding box and such.  The star rotates as the
+player moves left and right, showing movement.
+
+The player has a limited amount of life and energy.  You regain both slowly.
+Destroyed enemies will drop things that will boost one or the other or both,
+or have a different effect.  Maybe not boost actual amount, but charge rate?
+
+As you conquor each room-cluster, you gain it's Power.  Each Elemental Power
+makes one of the points of the star light up with the appropriate color,
+trailing particles and generally looking cool.  Star and Soul are shown as a
+hail of appropriately colored sparks every time the player moves.
+Start... I'm not sure how Start is shown; perhaps by a doubling of the
+core-circle.  Or the initial cross of power; that works.  End, I have no clue,
+but it should change your overall appearance for the better.
+
+
+POWER
+There are eight Powers, one for each room-cluster.  Each Power has four
+Aspects: close attack, far attack, defend, and jump.
+
+You may or may not be able to combine the Aspects, to produce eight abilities
+per Power: close/far attack, defend/jump, either attack/defend, either
+attack/jump.
+
+Each Power works in different ways, doing different things, with different
+advantages and disadvantages.  Most of this is yet to be determined, but none
+should be definitively better than the others.
+
+Switching powers takes time and energy.
+
+Does each power have a strength level, and you grow stronger the more powers
+you have?  I like that, it makes them Always Useful.
+
+Start: Balance
+ Close attack: A circular burst of 8 small, short-range bullets
+ Far attack: A single long-range bullet
+ Jump: Just a basic jump
+ Defend: All-around shield, reduces damage taken to 1/4
+
+
+Earth: Tank
+ Close attack: Big spike stabs out of the ground in front of you, holds target
+briefly
+ Far attack: Launches a rock that rolls, breaks when it hits something
+ Jump: Grappling hook!
+ Defend: Perfect defense, but you must be on the ground and it holds you motionless
+
+Air: Evasion
+ Close attack: LIGHTNING!
+ Far attack: Whirlwind sprint, has a cool-down
+ Jump: Lofts you high in the air, makes you fall more slowly
+ Defend: Makes you invisible and intangible for a brief moment (mist)
+
+Water: Utility (short-range rush?)
+ Close attack: Burst of ice that freezes anything it touches
+ Far attack: Slow, powerful, big AOE tidal-wave, knockback
+ Jump: A column of ice lifts you into the air, lasts briefly
+ Defend: Repels things
+
+Flame: Damage (long-range artillery?)
+ Close attack: Small fireballs that bounce along the ground, Mario-like (DOT?)
+ Far attack: Launches a big mortar-like fireball that explodes on impact
+ Jump: Jets you up, leaving fire behind you.
+ Defend: Forms a wall of magma in front of you which slowly cools, then breaks
+
+
+Star: Fierce attack
+ Close attack: Powerful energy-wave just in front of you
+ Far attack: Weaker energy-wave, but goes through walls
+ Jump: Teleports you through intervening space
+ Defend: A circle of stars around you that hurt anything that touches you
+
+Soul: Confusion
+ Close attack: Powerful repel-burst all around you
+ Far attack: Confusion; enemies hit work for you briefly
+ Jump: Flight, up and forward
+ Defend: You are invisible but not intangible, lasts a while.
+
+
+End: Death
+ Close attack: Touch of death.  Slow, lots of energy.
+ Far attack: Summon a reaper-helper?
+ Jump: Rising energy blast, hurts you too a little
+ Defend: You are briefly one-touch-kill invincible; takes lots of energy
+
+Using any Aspect of a Power consumes the player's energy.  This energy
+regenerates slowly.  As the player gains more Aspects, the rate of
+regeneration increases by n^2, and the max amount of energy increases by n*c.
+So 1 aspect means 1 point per second, 100 max energy.   (1%)
+2 ->  4 points regen, 200 max   (2%)
+3 ->  9 points regen, 300 max   (3%)
+4 -> 16 points regen, 400 max   (4%)
+5 -> 25 points regen, 500 max   (5%)
+6 -> 36 points regen, 600 max   (6%)
+7 -> 49 points regen, 700 max   (7%)
+8 -> 64 points regen, 800 max   (8%)
+
+Of course, the actual values are probably gonna be tweaked like hell, but it'd
+be nice if the general trend was about like this.  Maybe nlogn instead of n^2?
+
+
+GRAPHICS
+There should be a colored border around the screen that changes color to
+convey information.  Work the GUI more...
+
+
+
+ENEMIES
+Enemies are semi-random.  They get more difficult depending on how awesome you
+are and how close you are to the core room of the cluster.
+
+Graphics for enemies are basically any nifty display-hack I can do quickly and
+draw moving around on the screen.  Each cluster will have it's own types of
+enemies with their own powers.
+
+Enemies MIGHT evolve genetically depending on how well they do against you, or
+they might just get deterministically harder.
+
+Powers enemies could have:
+Blocking
+Jump-attack
+Grappel-hook
+Pull
+Repel
+Climb-on-ceiling/wall
+Fog
+Teleport
+Brief invisibility
+Displacement/mirror image
+Doppelgangers, a la Stentor
+Bouncing, a la Mr. Turniphead (Howl's Moving Castle)
+
+Enemies in each cluster are more vulnerable to their opposite element, and
+less to their own element.  Level design should reflect this, making the
+puzzles harder to solve with the opposite element.  Moo hoo ha ha.
+
+
+POWERUPS
+Enemies drop a variety of powerups.  The simplest restore life, energy, or
+both.  Other ones could be improved energy regen, invincibility, uber-speed,
+gain some Power for a brief time, other fun things.  
+
+The exact power, drop rate, and duration of such things is subject to
+play-testing, of course.
+
+
+
+NOTES
+Cool effects I may have to use:
+A barrier that slows you down, setting your velocity to 0 but not changing
+your position
+Gravity is dependant on altitude?
+
+
+
+
+(OLD) VAGUE IDEAS AND SCHEMINGS 
+Another platformer game I call Starmaze.
+This game is abstract and mysterious.  All the graphics are
+vector-based, quite possibly made from 3D panels...  All swirly and
+strange.  Platforms change color as you land on them, lines trail off
+behind moving things, the background is an abstract swirling pattern
+that may or may not convey useful information if you read it right.
+Stuff like that.
+
+The enemies are also abstract, ever-changing patterns.  Quite possibly
+some sort of fractal that gets fed their position and time as a
+parameter, making them never the same twice.  
+
+The rooms and graphics should be procedurally generated.  It may be
+some kind of maze or laberynth, or even the original Starmaze.
+
+There may be puzzles of varying sorts.  What kind I don't know.
+
+You get a variety of neat weapons useful in various ways.  Try to keep
+each simple but unique in function.  One should ideally be able to use
+several weapons together in unique ways...
+
+The enemies learn and evolve, depending on how well they fare against
+you?  Perhaps...
+
+
+Okay, we need a real design document.  Let there be evil enemies, 
+puzzles with perhaps many solutions, nifty weapons, labrynthine mazes, 
+many secrets...
+
+Hmm.  Okay, real requirements now...
+There shall be nifty graphics.  I dunno about OpenGL, but there's gotta 
+be some way to make 2d vector graphics look awesome.  Lines that flash 
+and sequence, trailing echos behind them...
+
+Well, particles can be done, if nothing else.
+
+We can also find nice display-hack-y algorithms for the background.  
+Hypnotic things.  Spectrum analyzers for the music.  Whirlpools and 
+raindrops.  Fractal-trees.
+
+Most or all graphics should be vector-based.  If enemies and objects can 
+be ever-morphing abstractions generated procedurally, without TOO much 
+overhead, that'd be real keen.  The player, I'm not sure about...  
+Something cool-looking and not too complicated, but distinctive and, 
+well, heroic.
+
+
+Level design... now, THIS is something I'm really not sure about.  It'd 
+be nice if levels were generated procedurally too, off the Starmaze or 
+something fun like that, but that really doesn't leave a lot of room for 
+secrets and such.
+
+Multiple paths sounds like a good idea...
+
+I DO like the idea of individual rooms, where in each room you face 
+challenges based on how well you defeated the challenges before.  
+Especially since it could almost go on eternally (though that seems 
+boring, with no final goal).
+
+Hmmm... maybe the rooms are, like Realms, made of certain features and 
+descriptions but otherwise random?  That has potential.
+Size, full-o-platforms-ness, other features like lava/spikes/ropes, 
+types of monsters, setting/colors/background, gas, wind, pipes full of 
+goo, water, moving platforms/constellations a la Inner Space,
+
+Hmmm, a maze.  But then backtracking becomes important, so.  It becomes 
+a network of some kind or another, perhaps.  There IS a distinct 
+forward, and dead-ends either lead to something or are not very long.  
+Cycles are okay.  It probably shouldn't be directed, in the general 
+case, though one-way doors may exist (and be clearly marked).
+
+
+
+The hero is a circle with a triangle drawn around it, overlapping with the
+floor where necessary.  This makes it more than just a circle, letting
+movement and such be apparent while still having one face in contact with the
+ground and being simple.
+
+I need: Arbitrary line representation/drawing, translation and rotation of
+points in space, some non-sprite abstraction for image-drawing,
+
+
+
+

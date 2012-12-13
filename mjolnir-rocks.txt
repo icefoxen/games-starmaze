@@ -1,0 +1,87 @@
+<Mjolnir> Interpolation? You have a beginning and end position, and want to
+          find points in between?
+<Icefox> Dat's der bunny.
+<Icefox> So I don't end up falling through floors when the GC runs.
+<Mjolnir> Er...?
+<Mjolnir> Don't see how interpolation will help there.
+<Mjolnir> If you just have two points, linear interpolation is just a linear
+          combination of those two points...a weighted average, with the
+          weights adding up to 1.
+<Icefox> Collision detection.  Each frame, I move an object x*dt distance, and
+          then check to see if it's run into anything.  If dt is sufficiently
+          large (for example, the GC takes 150 ms), then I can fall through
+          things.
+<Icefox> ...Oh.  That's a nicer way of doing it than I'd thought of.
+<Icefox> Or rather, a nicer way of thinking about it.  Thank you!
+<Mjolnir> p1*t + p2*(1 - t)
+<Mjolnir> It's equivalent to expressing it as a line with start position and
+          origin: p1*t + p2*(1 - t) == p1*t + p2*1 - p2*t == p2 + (p1 - p2)*t
+<Mjolnir> (That actually puts p2 as the start point...make sure you don't get
+          them backwards!)
+<Icefox> Yes.  Dammit, why does math have to be so useful?
+<Mjolnir> Anyway...what are you colliding things with? Checking a bunch of
+          points along the trajectory is going to be costly, and still prone
+          to breaking.
+<Mjolnir> Exact collision is usually pretty easy in 2D.
+<Icefox> I am colliding bounding boxes with other bounding boxes/lines.
+<Icefox> It's pretty exact actually, but fast-moving objects can still pass
+          right through things sometimes.
+<Mjolnir> If it's possible for things to pass through other things, it isn't
+          exact...
+<Icefox> Okay, exact isn't quite the word.  It works well for the average
+          case.
+<Mjolnir> Hmm. Trace lines from vertices of each box toward the other box. If
+          any intersect a side of the other box within the distance covered
+          during the timestep, the two collide.
+<Icefox> But what if the other object is moving as well?
+<Mjolnir> You only need to consider relative motion.
+<Icefox> What do you mean?
+<Mjolnir> The difference in velocity between the two.
+<Mjolnir> If they're a given distance apart and moving at the same velocity,
+          they won't collide.
+<Mjolnir> They will both move a given distance in the timestep, assuming no
+          collision. Subtract one displacement from the other, use the length
+          of that vector for the max length of the collision test rays.
+<Icefox> I don't see how that helps me.  If object A is moving horizontally
+          toward B, and B is moving vertically... I project lines from A along
+          it's path, and the very tips of them hit B, so I think they've
+         it's path, and the very tips of them hit B, so I think they've
+          collided.  But in reality, B would have moved up by the time A
+          reaches it.
+<Icefox> ...mrf.  My brain esplode.
+<Mjolnir> But you don't project lines from A along its absolute path. You
+          project lines along its path relative to B's path.
+<Icefox> Okay, now we're getting somewhere.  Sorta.  Gimme a second...
+<Icefox> .....Interesting.  Twisted, but interesting.
+<Mjolnir> Pick one object, look at the motion of the other object relative to
+          it.
+<Icefox> So if A's velocity is (1,0) and B's is (0,1), I project a line as
+  though A's velocity were (1,1).  If it hits B's initial position,
+  then they would have collided.  Yes?
+<Mjolnir> Switch them around...the relative motion is the same, but in the
+  opposite direction.
+<Mjolnir> No. Difference in velocity.
+<Mjolnir> B is traveling at (-1,1) from A's point of view.
+<Icefox> ....dammit, why do you have to be right all the time?
+<Mjolnir> If B is sitting still, its velocity relative to A is A's velocity,
+  negated. (flipped around)
+<Icefox> Yeah.
+<Mjolnir> If it isn't sitting still, its velocity adds to that.
+<Icefox> So then we imagine A is sitting still, and project the lines from B
+          toward A?
+<Mjolnir> So, v of B - v of A.
+<Mjolnir> Yeah...sort of. Project lines both ways.
+<Mjolnir> Otherwise, one might fall through a side of the other.
+<Icefox> Well, adjust both if they collide, yes.
+<Mjolnir> No, adjusting comes after you've determined if there is a
+          collision.\
+<Mjolnir> You need to test both ways to be sure of determining that a
+          collision didn't occur.
+<Icefox> ...whyso?  If A collides with B, how can B not collide with A?
+<Mjolnir> Think of a wide, flat box with a small box falling straight down
+          toward its middle.
+<Mjolnir> If you only test from the corners of the big box, the small box will
+          fall straight between the test rays.
+<Icefox> Ah, okay.
+<Icefox> I wish people on, say, the gamedev.net forums knew this stuff.
+
