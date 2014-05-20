@@ -322,4 +322,23 @@ points in space, some non-sprite abstraction for image-drawing,
 
 
 
+NEW IDEAS (2014)
+This is actually surprisingly solid, though I'd probably move the pus-things-
+away-power to Air.  It can also be a little more physics-y than I originally intended,
+I think.
 
+Also, why not set it in the real Starmaze?  A 9 dimensional hypercube...  The evocative names of rooms
+for it are worth it alone, to an extent.
+
+Or some other shape, perhaps a 5 dimensional hypercube or such.  Something to think about ad explore, at
+least.  Maybe an octohedron instead of a cube.
+
+To unlock Soul and Star, you must go to each of the previous boss rooms and use each element, once you
+have them all.  The boss rooms should have ominous anticipatory music and messages.  Doing this makes
+asuper-boss appear in each of the room (souped up versions of the defeated bosses prolly) and once you
+defeat them all, it opens the gate.
+
+Either that or you have to find and defeat roaming bosses such as Stalker and Eliminiator.  I like that
+idea too.
+
+Hell, both!
