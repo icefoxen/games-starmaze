@@ -342,3 +342,40 @@ Either that or you have to find and defeat roaming bosses such as Stalker and El
 idea too.
 
 Hell, both!
+
+VVVVVV has a sort of nice aesthetic; consider that and look at it more.  Hero Core succeeds at this too.
+
+
+> Also I've been thinking about Starmaze more.
+> Mainly level design, since it's kind of deeply intertwingled with the rest of
+it.
+> The original plan was to make the levels procedurally, but I'm not sure if I
+can do that successfully and interestingly.
+> Similar games like Hero Core and VVVVVV and Iji rely a lot on very carefully
+crafted levels.
+> I want exploration to be a theme, so having a large sprawling world that is
+different each time is appealing.  And having multiple paths in each stage which can be solved with
+different elements or combinations of elements is appealing, though that involves having rather more
+areas and making each zone rather bigger than I was originally planning, which makes not needing to
+design them all by hand even _more_ attractive.
+> But making them interesting and actually possible (essentially be able to
+define constraints on them and solve for these constraints to prove that, say, a particular jump can be
+made) is something that gets tricky.
+> An appealing approach is that of Spelunky and Diablo and such, where levels
+are made of tiled sections.  But that starts feeling a little bit of a cop-out.
+> You'd still need some constraint solving, but there'd be less of it and it'd
+happen in bigger chunks.
+> It would be less complicated, is what I'm trying to say.
+> /me throws this all down so he can look at it later when he's awake and turn
+it into proper notes.
+> Randomly generated enemies and such are also interesting, but even _harder_.
+....in some respects.  Hmmm.
+> Oh, another thing I was thinking about, is that the player becomes more
+powerful as they clear more areas, so do the rest of the areas become correspondingly harder?  How does
+that work; more enemies, harder enemies?  Maybe all the enemies in the area you clear migrate to the
+other zones.
+> Also in the end I don't want the player to become _Vastly_ more powerful, but
+rather have more tools in their toolbox.
+> So regulating difficulty is also a concern with random generation.
+> Man, Hero Core is an excellent game.
+
